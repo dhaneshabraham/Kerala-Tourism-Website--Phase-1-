@@ -340,3 +340,14 @@ body {
 	  color: red;
 	  
   }
+  .footer-section{
+	  
+	background-color: #a8acc5;
+	color: brown;
+}
+.list-unstyled a{
+   color: #1d1f1d;
+   font-weight:100;
+   text-decoration: none;
+   
+}

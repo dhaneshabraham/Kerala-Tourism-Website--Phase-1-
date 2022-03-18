@@ -341,6 +341,7 @@ body {
 	  
   }
   .footer-section{
+	  border: 1px dotted rebeccapurple ;
 	  
 	background-color: #a8acc5;
 	color: brown;

@@ -35,10 +35,13 @@ function signupvalidation(){
         let userRegexp=/^[a-zA-Z0-9\.-]$/;
         var em=emailRegexp.test(x[2].value);
         var us=userRegexp.test(x[3].value);
-        if (!em||!us)
+        if (!em)
         {              
-            err[0].innerHTML="Invalid email id or username";
+            err[0].innerHTML="Invalid email id ";
             return false;
+        }
+        else if(!us){
+            err[0].innerHTML="Invalid username";
         }
         else
         {

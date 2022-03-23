@@ -1,10 +1,11 @@
 body {
+
 	margin: 0;
 	color: #6a6f8c;
 	background: #1d0101;
 	font: 600 16px/18px 'Open Sans', sans-serif
   }
-  
+
 /*  carousel      */
 
 .carousel-item {
@@ -234,3 +235,29 @@ body {
   .btn:not([disabled]):hover {
 	box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
   }
+
+#form i {
+    margin-left: -50px;
+    cursor: pointer;
+}
+#errlabel{
+	margin-left: 20px;
+	font-family: cursive;
+	color: red;
+}
+/* modal box */
+.modal{
+	cursor: pointer;
+	margin-left: 60%;
+	margin-top: 250px;
+	float: right;
+}
+.pass_hint{
+	cursor: pointer;
+}
+.bii{
+	color: red;
+	font-weight: bold;
+	/* border: 4px solid red; */
+	
+}

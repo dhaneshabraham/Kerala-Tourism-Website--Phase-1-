@@ -1,57 +1,118 @@
 function loginvalidation(){
-    var x=document.getElementsByClassName("input")
-    var y=document.getElementsByTagName("label");
-    if(x[0].value=="" ||x[1].value=="") 
+    
+    var input1=document.getElementsByClassName("input1")
+    var y=document.querySelector("#errlabel");    
+    
+    if(input1[0].value=="" ||input1[1].value==""||input1[2].value=="" ) 
     {
-        y[2].style.color="red"
-        y[3].style.color="red"
-        alert("cannot left empty")
-        
+        y.innerHTML="fields cannot left empty";
         return false
     }       
     else
-    {            
-    return true
-    }
-    
-    }
-function signupvalidation(){
-    
-    var x=document.getElementsByClassName("input")
-    var y=document.getElementsByTagName("label");
-    var err=document.getElementsByClassName("laberr");
-    if(x[2].value=="" ||x[3].value==""||x[4].value=="" ||x[5].value=="") 
-    {
-        y[5].style.color="red"
-        y[6].style.color="red"
-        y[7].style.color="red"
-        y[8].style.color="red"
-        alert("cannot left empty")
-        return false
-    }       
-    else
-    {
-        let emailRegexp=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        let userRegexp=/^[a-zA-Z0-9\.-]$/;
-        var em=emailRegexp.test(x[2].value);
-        var us=userRegexp.test(x[3].value);
-        if (!em)
+    {   
+        let emailRegExp=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        // let emailRegExp=/^([a-zA-Z0-9._-]+)@([a-zA-Z0-9.-]+).([a-zA-Z]{2,3})([a-zA-Z]{2,3})?$/
+
+        let passRegExp=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        let numOnlyRegExp=/(?=.*\d)/
+        let numFormatRegExp=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+        var emv=emailRegExp.test(input1[0].value);
+        var psv=passRegExp.test(input1[1].value);
+        var nsv_o=numOnlyRegExp.test(input1[2].value);
+        var nsv_f=numFormatRegExp.test(input1[2].value);
+        if (!emv)
         {              
-            err[0].innerHTML="Invalid email id ";
+            y.innerHTML="Invalid email id ";
             return false;
-        }
-        else if(!us){
-            err[0].innerHTML="Invalid username";
-        }
-        else
+        }   
+        else if(!psv)
         {
-            if(x[4].value!=x[5].value)
-            {
-                err[0].innerHTML="password doesnot match !";
+            y.innerHTML="Invalid password format ";
+            document.getElementById('pass_hint').hidden=false;
+            return false;
+        }  
+        else   
+        {
+            if (!nsv_o){
+                y.innerHTML="Invalid Phone Number";
                 return false;
             }
+            else if (!nsv_f){
+                y.innerHTML="Phone Number Format Is  Not Valid ";
+                return false;
+            }
+
+            
         }
-        
-        return true
+
+    return true 
     }
+
     }
+
+
+function signupvalidation(){
+    var input1=document.getElementsByClassName("input1")
+    var y=document.querySelector("#errlabel");    
+    if(input1[0].value=="" ||input1[1].value==""||input1[2].value==""||input1[3].value=="" ) 
+    {
+        y.innerHTML="fields cannot left empty";
+        return false
+    }       
+    else
+    {   let emailRegExp=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        // let emailRegExp=/^([a-zA-Z0-9._-]+)@([a-zA-Z0-9.-]+).([a-zA-Z]{2,3})([a-zA-Z]{2,3})?$/
+
+        let passRegExp=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+        let numOnlyRegExp=/(?=.*\d)/
+        let numFormatRegExp=/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+        var emv=emailRegExp.test(input1[0].value);
+        var psv=passRegExp.test(input1[1].value);
+        var nsv_o=numOnlyRegExp.test(input1[3].value);
+        var nsv_f=numFormatRegExp.test(input1[3].value);
+        if (!emv)
+        {              
+            y.innerHTML="Invalid email id ";
+            return false;
+        }   
+        else if(!psv)
+        {
+            y.innerHTML="Invalid password format ";
+            document.getElementById('pass_hint').hidden=false;
+            return false;
+        }  
+        else   
+        {
+            if(input1[1].value!=input1[2].value)
+            {
+                y.innerHTML="Password Missmatch";
+                document.getElementById('pass_hint').hidden=false;
+                return false;
+            }
+
+            if (!nsv_o){
+                y.innerHTML="Invalid Phone Number";
+                return false;
+            }
+            else if (!nsv_f){
+                y.innerHTML="Phone Number Format Is  Not Valid ";
+                return false;
+            }
+
+            
+        }
+
+    return true 
+    }
+
+
+}
+
+
+    // clear error label
+    function hideLabel()
+    {
+        document.getElementById('errlabel').innerHTML= "";
+        document.getElementById('pass_hint').hidden=true;
+    }
+   

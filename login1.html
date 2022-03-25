@@ -83,8 +83,17 @@
                   </div>
                   <div class="form-field d-flex align-items-center">
                     <span class="fa fa-key"></span>
-                    <input type="password" name="password" id="password" placeholder="Password"  class="input1" onfocus="hideLabel()"><i class="bi bi-eye-slash" id="togglePassword"></i> <i class="bii bi-info-circle" id="pass_hint" data-bs-toggle="modal" data-bs-target="#exampleModal" hidden="true"></i>
+                    <input type="password" name="password" id="password1" placeholder="Password"  class="input1" onfocus="hideLabel()"><i class="bi bi-eye-slash" id="togglePassword"></i> <i class="bii bi-info-circle" id="pass_hint" data-bs-toggle="modal" data-bs-target="#exampleModal" hidden="true"></i>
                   </div>
+
+                  <!-- label for strength greenorangered -->
+                  <div class="flexb">
+                    <span id="passstr" hidden="true">strength :</span>
+                    <span  id="passerr" width="3px"></span>
+                  </div>
+
+
+
                   <div class="form-field d-flex align-items-center">
                     <span class="fa fa-phone-square"></span>
                     <input type="text" name="phno" id="phno" placeholder="Phone Number"  class="input1" onfocus="hideLabel()">
@@ -382,7 +391,7 @@
 
 
 const togglePassword = document.querySelector("#togglePassword");
-        const password = document.querySelector("#password");
+        const password = document.querySelector("#password1");
 
         togglePassword.addEventListener("click", function () {
             // toggle the type attribute
